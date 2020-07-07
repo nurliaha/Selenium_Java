@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class dropdownlat {
 
@@ -37,9 +38,11 @@ public class dropdownlat {
 		
 //		dropdown pessanger
 		
-		driver.findElement(By.xpath("//div[@class='ui-datepicker-group ui-datepicker-group-last']//tr[1]//td[5]")).click();
+		driver.findElement(By.xpath("//div[@id='ui-datepicker-div']")).click();
+//		driver.findElement(By.xpath("//a[@class='ui-state-default ui-state-active']")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[@id='divpaxinfo']")).click();
+		Thread.sleep(2000);
 		int i=1;
 		while(i<4) {
 			driver.findElement(By.xpath("//select[@id='ctl00_mainContent_ddl_Adult']")).sendKeys(Keys.DOWN);
@@ -53,10 +56,13 @@ public class dropdownlat {
 		WebElement chkbox = driver.findElement(By.xpath("//input[@id='ctl00_mainContent_chk_friendsandfamily']"));
 		chkbox.click();
 		System.out.println(chkbox.isSelected());
-		
+		Assert.assertFalse( driver.findElement(By.xpath("//input[@id='ctl00_mainContent_chk_SeniorCitizenDiscount']")).isSelected());
+		Assert.assertFalse(false);
 		WebElement chkbox2 = driver.findElement(By.xpath("//input[@id='ctl00_mainContent_chk_SeniorCitizenDiscount']"));
 		chkbox2.click();
 		System.out.println(chkbox2.isSelected());
+		Assert.assertTrue(driver.findElement(By.xpath("//input[@id='ctl00_mainContent_chk_SeniorCitizenDiscount']")).isSelected());
+		Assert.assertTrue(true);
 		
 		
 		Thread.sleep(2000);
