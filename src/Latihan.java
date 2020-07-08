@@ -26,15 +26,15 @@ public class Latihan {
         return driver;
     }
 
-    public static void verifyHomepageTitle(WebDriver driver) {
+    private static void verifyHomepageTitle(WebDriver driver) {
         System.out.println(driver.getTitle());
         String expectedTitle = "SpiceJet - Flight Booking for Domestic and International, Cheap Air Tickets";
         String actualTitle = driver.getTitle();
         try {
             Assert.assertEquals(actualTitle, expectedTitle);
-            System.out.println("Test Title Passed");
+            System.out.println("Test verifyHomepageTitle: Success");
         } catch (Throwable e) {
-            System.out.println("Test Title Failed");
+            System.out.println("Test verifyHomepageTitle: Failed");
         }
     }
 
@@ -53,9 +53,10 @@ public class Latihan {
 //		alternatif id dynamic
         driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
         Thread.sleep(2000);
+        System.out.println("Test verifyFrom: Success");
     }
 
-    public static void verifyPasanger(WebDriver driver) throws InterruptedException {
+    private static void verifyPasanger(WebDriver driver) throws InterruptedException {
 //		dropdown pessanger
         driver.findElement(By.xpath("//div[@id='ui-datepicker-div']")).click();
 //		driver.findElement(By.xpath("//a[@class='ui-state-default ui-state-active']")).click();
@@ -69,9 +70,10 @@ public class Latihan {
         }
         Assert.assertEquals(driver.findElement(By.xpath("//div[@id='divpaxinfo']")).getText(), "5 Adult");
         System.out.println(driver.findElement(By.xpath("//div[@id='divpaxinfo']")).getText());
+        System.out.println("Test verifyPassanger: Success");
     }
 
-    public static void verifyCheckbox(WebDriver driver) throws InterruptedException {
+    private static void verifyCheckbox(WebDriver driver) throws InterruptedException {
 //	    Count the number of Checkboxes
         System.out.println(driver.findElements(By.cssSelector("input[type='checkbox']")).size());
         Thread.sleep(2000);
@@ -88,12 +90,14 @@ public class Latihan {
         Thread.sleep(2000);
 //		after checkbox have other java script
         driver.findElement(By.xpath("//div[@id='flightSearchContainer']")).click();
+        System.out.println("Test verifyCheckbox: Success");
     }
 
-    public static void verifyLinkText(WebDriver driver) throws InterruptedException {
+    private static void verifyLinkText(WebDriver driver) throws InterruptedException {
         driver.findElement(By.partialLinkText("Special Assistance")).click();
         Thread.sleep(4000);
         driver.findElement(By.xpath("//a[@id='SpecialAssistanceWindow']")).click();
         Thread.sleep(2000);
+        System.out.println("Test verifyLinkText: Success");
     }
 }
