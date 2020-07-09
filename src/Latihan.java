@@ -14,6 +14,7 @@ public class Latihan {
         WebDriver driver = initialWebDriver();
         verifyHomepageTitle(driver);
         verifyFrom(driver);
+        verifyDates(driver);
         verifyPasanger(driver);
         verifyCheckbox(driver);
         verifyLinkText(driver);
@@ -54,6 +55,11 @@ public class Latihan {
         driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
         Thread.sleep(2000);
         System.out.println("Test verifyFrom: Success");
+    }
+
+    private static void verifyDates(WebDriver driver) throws InterruptedException {
+        driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+            System.out.println("Test verifyDates: Success");
     }
 
     private static void verifyPasanger(WebDriver driver) throws InterruptedException {
