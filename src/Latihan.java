@@ -53,18 +53,20 @@ public class Latihan {
 
 //		alternatif id dynamic
         driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //a[@value='MAA']")).click();
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         System.out.println("Test verifyFrom: Success");
     }
 
     private static void verifyDates(WebDriver driver) throws InterruptedException {
         driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
-            System.out.println("Test verifyDates: Success");
+        driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
+        Thread.sleep(2000);
+        System.out.println("Test verifyDates: Success");
     }
 
     private static void verifyPasanger(WebDriver driver) throws InterruptedException {
-//		dropdown pessanger
-        driver.findElement(By.xpath("//div[@id='ui-datepicker-div']")).click();
+
+//        driver.findElement(By.xpath("//div[@id='ui-datepicker-div']")).click();
 //		driver.findElement(By.xpath("//a[@class='ui-state-default ui-state-active']")).click();
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[@id='divpaxinfo']")).click();
