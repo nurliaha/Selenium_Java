@@ -61,14 +61,11 @@ public class Latihan {
         System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
         driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
         System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
-        if (driver.findElement(By.id("Div1")).getAttribute("style").contains("1"))
-        {
+        if (driver.findElement(By.id("Div1")).getAttribute("style").contains("1")) {
             System.out.println("Its enabled");
-                Assert.assertTrue(true);
-        }
-        else
-        {
-                Assert.assertTrue(false);
+            Assert.assertTrue(true);
+        } else {
+            Assert.assertTrue(false);
         }
 //        System.out.println(driver.findElement(By.name("ctl00$mainContent$view_date2")).isEnabled());
 //        driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
