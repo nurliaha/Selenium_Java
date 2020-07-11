@@ -58,10 +58,22 @@ public class Latihan {
     }
 
     private static void verifyDates(WebDriver driver) throws InterruptedException {
+        System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
         driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
-        driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
-        Thread.sleep(2000);
-        System.out.println("Test verifyDates: Success");
+        System.out.println(driver.findElement(By.id("Div1")).getAttribute("style"));
+        if (driver.findElement(By.id("Div1")).getAttribute("style").contains("1"))
+        {
+            System.out.println("Its enabled");
+                Assert.assertTrue(true);
+        }
+        else
+        {
+                Assert.assertTrue(false);
+        }
+//        System.out.println(driver.findElement(By.name("ctl00$mainContent$view_date2")).isEnabled());
+//        driver.findElement(By.cssSelector(".ui-state-default.ui-state-active")).click();
+//        Thread.sleep(4000);
+//        System.out.println("Test verifyDates: Success");
     }
 
     private static void verifyPasanger(WebDriver driver) throws InterruptedException {
